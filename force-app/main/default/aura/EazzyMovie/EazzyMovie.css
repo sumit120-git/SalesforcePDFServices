@@ -1,0 +1,17 @@
+.THIS .slds-grid.slds-wrap {
+    width: 1229px;
+    margin: 0 auto;
+}
+.THIS .changeMe {
+    display: none !important;
+}
+.THIS .txt-cntr{
+    text-align: center;
+    margin-top:10%;
+}
+
+.THIS .auth_txt_light{
+    text-align:left;
+    font-size:1.15em;
+    font-weight:500 !important;
+}

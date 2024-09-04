@@ -1,0 +1,65 @@
+<aura:component controller="MovieDetails"
+                implements="force:appHostable,flexipage:availableforallpagetypes"
+                            
+                            access="global">
+<aura:handler name="init" value="this" action="{!c.doInit}"/>
+    <aura:attribute name="searchVariable" type="String" description="Used to search Movies"/>
+    <aura:attribute name="searchResult" type="Object[]" access="public"/>
+    <aura:attribute name="Message" type="boolean" default="false" description="No Results Found"/>
+    <aura:attribute name ="title" type="String" default="Custom Title" />
+    <aura:attribute name="Genre" type="String" />
+     <aura:attribute name="MovieDetails" type="object" />
+    
+    
+    
+     <div class="slds-size--1-of-2">
+     <div class="Movie Title slds-grid slds-wrap  slds-text-align--center txt-cntr">
+         <lightning:layoutItem size="8" padding="around-small" >
+          <lightning:input value="{!v.searchVariable}" 
+                           type="search"
+                           aura:id="searchField"
+                           autocomplete="off"
+                           placeholder="Search Movie with …"
+                           messageWhenValueMissing="An empty Movie cannot be Searched."
+                           
+                           />
+        </lightning:layoutItem>
+        
+         <lightning:layoutItem size="3" >
+            <div class="txt-cntr">
+                 <lightning:button onclick="{!c.searchMovies}"
+                                   variant="brand"
+                                   label="search"
+                                   aura:id="searchBtn"
+                                   />
+                </div>
+                  
+        <!-- {!MovieDetails.Title}-->
+         </lightning:layoutItem>
+        </div>
+         </div>
+     <div class="slds-col slds-size_1-of-4 slds-p-around_small loc_list">
+    <lightning:card>
+        <p class="slds-p-horizontal_small">
+            <div class="slds-grid slds-gutters algnn-txt" >
+                            <div class="slds-col slds-size_3-of-3 txt-algnn">
+             <p class="auth_txt_light">
+            <b>IT</b><br/>
+                 <b>Horror</b><br/>
+                 <b>Ratings</b>
+        </p>
+                                </div>
+                        </div>
+
+        </p>
+    
+        <aura:set attribute="title">
+        
+            <lightning:icon iconName="utility:connected_apps" size="small"/>
+            
+        </aura:set>
+    </lightning:card>
+        
+    </div>
+	
+</aura:component>

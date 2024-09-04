@@ -1,0 +1,9 @@
+<aura:component >
+     <div>
+        <button class="slds-button slds-button--neutral" onclick="{!c.createModal}">Open Modal</button>  
+        <!-- Modal will come here-->       
+        <div aura:id="ModalDiv">
+            {!v.body}
+        </div>
+    </div>
+</aura:component>

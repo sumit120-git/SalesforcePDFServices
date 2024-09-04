@@ -1,0 +1,23 @@
+<aura:component >
+    <aura:registerEvent name="QnAevt" type="c:QnAevt"/>
+    <aura:handler  name="init" value="{!this}" action="{!c.doinit}"/>
+    <aura:attribute type="map" name="map"/>
+    <aura:attribute type="string" name="Question"/>
+    <aura:attribute type="List" name="Options"/>
+    <aura:attribute type="QnA__c" name="test"/>
+    <lightning:input name="Question" type="Text" label="Question" value="{!v.Question}" readonly="true"/>
+    <!--<lightning:input name="Options" type="Text" label="Options" value="{!v.Options}" readonly="true"/>-->
+    
+    
+    <lightning:select aura:id="OptionPicklist" label="Choose" name="option" onchange="{!c.handleOnChange}">
+        <option value="" text="- None -" /> 
+        <aura:iteration items="{!v.Options}" var="pickval">
+            <option value="{!pickval}" text="{!pickval}" />  
+        </aura:iteration>
+    </lightning:select>
+    
+    <!--<lightning:button variant="brand" label="Submit" onclick="{!c.saveQnA}" />-->
+    
+    <br/>
+    
+</aura:component>

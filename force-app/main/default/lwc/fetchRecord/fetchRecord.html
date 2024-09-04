@@ -1,0 +1,21 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="oppty-container">
+        <lightning-record-view-form record-id={recordId} object-api-name="Opportunity">
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Name"></lightning-output-field>
+                    <lightning-output-field field-name="StageName"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Type"></lightning-output-field>
+                    <lightning-output-field field-name="Amount"></lightning-output-field>
+        <!-- sldsValidatorIgnoreNextLine -->
+                </div>
+            </div>
+        </lightning-record-view-form>
+        <button class="slds-button slds-button_neutral" onclick={handleClick}>Do Something</button>
+    </div>
+</template>

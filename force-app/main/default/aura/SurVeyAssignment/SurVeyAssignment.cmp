@@ -1,0 +1,59 @@
+<aura:component controller="SurveyControllerV2" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="QnaRecords" type="QnA__c[]" />
+    <aura:attribute name="QnaRecordstoUpdate" type="QnA__c[]" />
+    
+    <aura:attribute name="fieldMap" type="Map"/>
+    <aura:handler name="QnAevt" event="c:QnAevt" action="{!c.addToQnA}"/>
+    <aura:attribute name = "show" type="boolean" default="false"/>
+    <aura:attribute name="Survey" type="Survey__c" default="{'sobjectType':'Survey__c', 
+                                                            
+                                                            }"/>
+    <!--Declare Handler-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  
+    
+    <!--Component Start-->
+    
+    <div class="slds-m-around--xx-large container-fluid" id="showTable" >
+        
+        <aura:if isTrue="{!v.show}">
+            <table>
+                <tr>
+                    <th aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps non-sortable-col" aria-label="Name" scope="col" width="150">
+                        <div class="slds-truncate"  title="Question">Question</div>
+                    </th>
+                    <th scope="row" data-label="Answer">
+                        <div class="slds-cell-wrap" title="Answer">Answer</div>
+                    </th>
+                </tr>
+                <tr>
+                    <div class="form-group">
+                        <aura:iteration items="{!v.QnaRecords}" var="obj" indexVar="key">
+                            <c:SurVeyAssignmentTable  test ="{!obj}" option ="{!obj.QnAOptions__c}" >
+                            </c:SurVeyAssignmentTable>
+                        </aura:iteration>
+                    </div></tr>
+            </table> 
+            <lightning:button variant="brand" label="Save" onclick="{!c.saveQnA}" />
+            
+            
+            <aura:set attribute="else">
+                <div>
+                    <b>Food Survey</b></div><br></br>
+                <div class="form-group">
+                    <lightning:input aura:id="input" name="Name" type="text" label="User Name" value="{!v.Survey.Name__c}" required="true" />
+                </div>
+                <div class="form-group">
+                    <lightning:input aura:id="input" name="Email" type="Email" label="Email" value="{!v.Survey.Email__c}" required="true" />
+                </div><br></br>
+                <div>
+                    <lightning:button variant="brand" label="Submit" onclick="{!c.saveSurvey}" /> 
+                    
+                </div>
+                
+                
+                
+            </aura:set>
+            
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,44 @@
+<aura:component >
+    <aura:attribute name="item" type="Camping_Item__c" required="" 
+                    default="{ 'sobjectType': 'Camping_Item__c',
+                        'Name': '',
+                        'Packed__c':'' }"/>
+  <aura:attribute name="buttonDisabled" type="String" default="false"/>
+<lightning:button name="Packed" label="Packed" onclick="{!c.packItem}" disabled="false"/>
+    <p>Name:<lightning:formattedText value="{!v.item.Name}"/></p>
+   <p>Packed:
+    <lightning:input type="Toggle"
+                     label="Packed"
+                     name="Packed"
+                     checked="{!v.item.Packed__c}"/></p> 
+ 
+  
+    <p>Quantity:<lightning:formattedNumber value="{!v.item.Quantity__c}" style="currency"/></p>
+    <p>Price:<lightning:formattedNumber value="{!v.item.Price__c}" style="number" /></p>
+    
+	
+</aura:component>
+
+<!--<aura:component >
+    <aura:attribute name="item" type="Camping_Item__c" required="true"/>
+    
+    
+    <p>Name:
+        <ui:outputText value="{!v.item.Name}"/>
+    </p>
+    <p>Price:
+        <ui:outputCurrency value="{!v.item.Price__c}"/>
+    </p>
+    <p>Quantity:
+        <ui:outputNumber value="{!v.item.Quantity__c}"/>
+    </p>
+    <p>Packed:
+        <ui:outputCheckbox value="{!v.item.Packed__c}"/>
+    </p>
+    
+     <div>
+        <ui:button label="Packed!" disabled="false"  press="{!c.packItem}"/> 
+ 
+        
+    </div>
+</aura:component>-->

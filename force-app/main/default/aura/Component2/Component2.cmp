@@ -1,0 +1,5 @@
+<aura:component implements="lightning:isUrlAddressable,lightning:hasPageReference" description="c:Component2">
+    <aura:attribute name="Firstname" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    Hello {!v.Firstname}.
+</aura:component>

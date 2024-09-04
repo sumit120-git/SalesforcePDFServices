@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:registerEvent name="cEvent" type="c:compEvent"/>
+    <aura:registerEvent name="aEvent" type="c:appEvent"/>
+    <aura:attribute name="pName" type="String"/>
+    <h1>This is {!v.pName} component</h1>
+    <p>
+    <lightning:button label="click here to fire cmp event" onclick="{!c.firecmp}"/></p>
+    <p><lightning:button label="click here to fire app event" onclick="{!c.fireapp}"/></p>
+</aura:component>

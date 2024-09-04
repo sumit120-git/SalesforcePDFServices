@@ -1,0 +1,58 @@
+<aura:component >
+   <!-- <aura:attribute name="Repelants" type="list"/>-->
+    <aura:attribute name="items" type="Camping_Item__c[]" />
+    <aura:attribute name="newItem" type="Camping_Item__c" 
+                    default="{ 'sObjectType':'Camping_Item__c',
+                                'Quantity__c':1,
+                             
+                                'Price':0}"/>
+    
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem>
+                <lightning:icon iconName="action:goal" alternativeText="campingHeader"/>
+        </lightning:layoutItem>
+       
+    </lightning:layout>
+                             
+    <form class="slds-form--stacked">
+   
+                <div class="slds-form-element slds-is-required">
+                     <div class="slds-form-element__control slds-is-required">
+                    <lightning:input type="Text" label="Name" value="{!v.newItem.Name}" aura:id="newItemform"/>
+                 
+                     </div>  
+                 
+                 
+                               
+                                 <div class="slds-form-element__control">
+    <lightning:input type="Number" label="Quantity" value="{!v.newItem.Quantity__c}" aura:id="newItemform"/>
+ 
+   
+ 
+				</div>   
+        
+        <div class="slds-form-element__control">
+    <lightning:input type="Currency" label="Price" value="{!v.newItem.Price__c}" aura:id="newItemform"/>
+ 
+   
+ 
+</div>   
+                      <div class="slds-form-element__control">
+    <lightning:input type="checkbox" label="Packed" value="{!v.newItem.Packed__c}"/>
+ 
+   
+ 
+</div>   
+        
+        
+         </div>  
+        
+        <lightning:button label="Submit" onclick="{!c.clickCreateItem}"/>
+   
+       </form>     
+    
+
+
+                                                             
+	
+</aura:component>

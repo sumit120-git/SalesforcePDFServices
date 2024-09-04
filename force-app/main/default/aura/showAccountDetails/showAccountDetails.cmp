@@ -1,0 +1,46 @@
+<aura:component implements="force:appHostable,force:hasRecordId,flexipage:availableForAllPageTypes" controller="AccountDetails" >
+    
+    <aura:attribute type="Account" name="AccountList"  />
+    <aura:attribute name="draftValues" type="Account" default="[]"/>
+    <aura:attribute type="list" name ="myColumns" />
+    <aura:attribute type="boolean" name="isEditAccountModal" default="false"/>
+    <aura:attribute name="accId" type="ID"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.fetchAccounts}"/>
+    
+ 
+    
+    <div>
+    Account Information {!v.AccountList[0].Name}
+        
+       
+        <lightning:button name="Edit" label="EditDetails" class="xyz" variant="brand" onclick="{!c.editAccountDetailsModal}"/>
+  
+    </div><br/>
+     <lightning:datatable aura:id="dtTable"
+                          data="{!v.AccountList}"
+                          columns="{!v.myColumns}"  
+                          keyField="id"
+                          hideCheckboxColumn="false"
+                          draftValues="{!v.draftValues}"
+                          onsave="{!c.handleSave}"
+                          />
+    <div>
+    <aura:if isTrue="{!v.isEditAccountModal}">
+        <c:EditAccountDetails data="{!v.AccountList}" recordId="{!v.recordId}"  isEditAccountModal="{!v.isEditAccountModal}"/>
+    </aura:if>
+        </div>
+                          
+                          
+                        
+   
+    
+    
+    
+    
+    
+                             
+                         
+    
+	
+</aura:component>

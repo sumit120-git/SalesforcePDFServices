@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event template" >
+    <aura:attribute name="test" type="QnA__C"/>
+    <aura:attribute name ="answer" type="String"/>
+</aura:event>

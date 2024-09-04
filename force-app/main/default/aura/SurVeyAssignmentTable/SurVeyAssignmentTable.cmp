@@ -1,0 +1,26 @@
+<aura:component >
+    <aura:registerEvent name="QnAevt" type="c:QnAevt"/>
+    <aura:handler  name="init" value="{!this}" action="{!c.doinit}"/>
+    <aura:attribute type="QnA__c" name="test"/>
+    <aura:attribute type="List" name="options"/>
+    <aura:attribute type="String" name="option"/>
+    <tr>
+        <th scope="row" data-label="Question">
+            <div class="slds-cell-wrap" title="Question">{!v.test.Question__c}</div>
+        </th>
+    
+    
+    <br/>
+        <th scope="row" data-label="Answer">
+            <div class="form-group">
+                
+                <lightning:select aura:id="OptionPicklist" label="Pick one" name="options" onchange="{!c.handleOnChange}">
+                    <option value="" text="- None -" /> 
+                    <aura:iteration items="{!v.options}" var="pickval">
+                        <option value="{!pickval}" text="{!pickval}" />  
+                    </aura:iteration>
+                </lightning:select>
+            </div></th>
+    </tr>
+    
+</aura:component>

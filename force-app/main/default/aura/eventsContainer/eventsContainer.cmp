@@ -1,0 +1,5 @@
+<!--c:eventsContainer-->
+<aura:component>
+    <c:handlercomp check="eventsHandler1"/>
+    <c:handlercomp check="eventsHandler2"/>
+</aura:component>

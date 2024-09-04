@@ -1,0 +1,66 @@
+<aura:component controller="surveyController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    
+    
+    
+    
+    
+    
+    <!--<aura:attribute name="Questions" type="String" />
+    <aura:attribute name="Answers" type="String" />-->
+    
+    <aura:attribute name="fieldMap" type="Map"/>
+    <aura:attribute name="Survey" type="Survey__c" default="{'sobjectType':'Survey__c', 
+                                                            
+                                                            }"/>
+    
+    <!--Declare Handler-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  
+    
+    <!--Component Start-->
+    <div class="slds-m-around--xx-large " id="showTable" >
+        <div class="container-fluid">
+            <div class="form-group">
+                <lightning:input name="Name" type="text" label="User Name" value="{!v.Survey.Name__c}" />
+            </div>
+            <div class="form-group">
+                <lightning:input name="Email" type="Email" label="Email" value="{!v.Survey.Email__c}" />
+            </div>
+            <div class="form-group">
+                <lightning:input name="Question" type="Text" label="Question" value="{!v.Survey.Question1__c}" readonly="true"/>
+            </div>
+            
+            <div class="form-group">
+                <lightning:select aura:id="AnswerPicklist" value="{!v.Survey.Answer__c}" onchange="{!c.handleOnChange}" name="AnswerPicklist" label="Answer" required="true">
+                    <option value="">None</option>
+                    <aura:iteration items="{!v.fieldMap}" var="i" indexVar="key">
+                        <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.Survey.Answer__c}" />
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+            <div class="form-group">
+                <lightning:input name="Question" type="Text" label="Question" value="{!v.Survey.Question2__c}" readonly="true"/>
+            </div>
+            
+            <div class="form-group">
+                <lightning:select aura:id="AnswerPicklist" value="{!v.Survey.Answer2__c}" onchange="{!c.handleOnChange}" name="AnswerPicklist" label="Answer" required="true">
+                    <option value="">None</option>
+                    <aura:iteration items="{!v.fieldMap}" var="i" indexVar="key">
+                        <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.Survey.Answer__c}" />
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+        </div>
+        <br/>
+        <lightning:button variant="brand" label="Submit" onclick="{!c.saveSurvey}" /> 
+        <!--<lightning:button variant="brand" label="Take Survey" onclick="{!c.saveSurvey}" />
+        <aura:iteration items="{!accounts}" var="account">
+            <tr>
+                <aura:iteration items="{!account.fields}" var="field">
+                    <td>{!field}</td>
+                </aura:iteration>
+            </tr>
+        </aura:iteration>-->
+        
+    </div>
+</aura:component>

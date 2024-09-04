@@ -1,0 +1,14 @@
+<aura:component >
+    <aura:attribute name="check" type="String"/>
+    <aura:attribute name="mostRecentEvent" type="String" default="xx"/>
+    
+    <aura:handler name="compeventfired" event="c:compEvent" action="{!c.handlecompEventfired}"/>
+    <aura:handler event="c:appEvent" action="{!c.handleAppEventfired}"/>
+    
+    <div>
+        <h2>This is {!v.check}</h2>
+        <p>This is {!v.mostRecentEvent}</p>
+        <c:childComp pName="{#v.check}"/>
+        
+    </div>
+</aura:component>

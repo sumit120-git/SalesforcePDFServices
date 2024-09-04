@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="color" type="string" default="Blue"/>
+    <aura:handler name="cmpEvent" event="c:ceEvent" action="{!c.handleEvent}"/>
+    
+    <c:ceNotifier/>
+    <p>{!v.color}</p>
+</aura:component>

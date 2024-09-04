@@ -1,0 +1,21 @@
+<template>
+    <lightning-spinner if:true={isLoading} alternative-text="Loading" size="medium"></lightning-spinner>
+    <lightning-card>
+        <div class="slds-var-m-around_medium">
+            <template if:true={fileName}>
+                Preview Uploaded File - 
+                <a onclick={previewImage}>
+                    {fileName}
+                </a>
+            </template>
+            <lightning-file-upload
+                label="Upload File"
+                accept={acceptedFormats}
+                record-id={recordId}
+                onuploadfinished={handleUploadFinished}>
+            </lightning-file-upload>
+        </div>
+    </lightning-card>
+
+   
+</template>
